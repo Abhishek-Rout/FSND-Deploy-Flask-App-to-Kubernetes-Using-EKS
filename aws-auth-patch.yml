@@ -5,11 +5,12 @@ data:
       - system:bootstrappers
       - system:nodes
       rolearn: arn:aws:iam::119771285815:role/eksctl-simple-jwt-api-nodegroup-n-NodeInstanceRole-5V1TOZPDZS10
-      username: system:node:{{EC2PrivateDNSName}} 
-    - groups:
-      - system:masters
-      rolearn: arn:aws:iam::119771285815:role/UdacityFlaskDeployCBKubectlRole
+      username: system:node:{{EC2PrivateDNSName}}
+
+      - rolearn: arn:aws:iam::119771285815:role/UdacityFlaskDeployCBKubectlRole
       username: build
+      groups:
+      - system:masters
   mapUsers: |
     []
 kind: ConfigMap
